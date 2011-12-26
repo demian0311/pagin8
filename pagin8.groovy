@@ -31,15 +31,29 @@ class Pagin8{
          return
       }
 
-      // look for an include
-      if(lineIn.startsWith("<!-->>")){
-         def includeFileName = config.dir.include + "/" + lineIn[6..-4]
-         println("\t\t- $includeFileName <-- including") 
-         def linesOut = ""
+      // look for includes
+      if(lineIn.startsWith("<!--include:")){
+         lineIn += "\n"
+         def includeFileName = config.dir.include + "/" + lineIn[12..-5]
+         println("\t\t- include: $includeFileName") 
          new File(includeFileName).eachLine{ currLine ->
-            linesOut += currLine + "\n" 
+            lineIn += currLine + "\n" 
          }
-         return linesOut
+      }
+
+      // look for aliases
+      //def map = config.alias.flatten
+      config.alias.keySet().each{ currKey ->
+         def fromString = config.aliasBegin + currKey + config.aliasEnd
+
+         if(lineIn.contains(fromString)){
+            def toString = config.alias.getProperty(currKey)
+            println("\t\t- alias  : $fromString -> $toString ") 
+            lineIn = ((java.lang.String)lineIn).replace(fromString, toString)
+         }
+
+
+         //lineIn = lineIn.replaceAll(fromString, toString) 
       }
 
       lineIn

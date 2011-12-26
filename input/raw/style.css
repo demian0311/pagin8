@@ -1,6 +1,6 @@
 h1 {
 		font-size: 125%;
-		background-color: #f8f8f8;
+		background-color: @[h1BackgroundColor];
 		border-bottom: 1px dotted #830000;
       color: #830000;
 		}
@@ -47,7 +47,7 @@ body {
 		font-size: 100%;
 		background-color: #ffffff;
 		margin: 2em;
-		color: #666666;
+		color: @[textColor];
 		}
 
 table.stats {
@@ -127,15 +127,6 @@ TD{
 }
 
 #navlist li a { text-decoration: none; }
-
-/* for delicious linkroll */
-.delicious-posts ul, .delicious-posts li, .delicious-banner {
-      color: #666666; padding: 0;  margin: 0; padding-top: 0.25}
-.delicious-posts { margin: 0; padding: 1; width: 150}
-.delicious-post { font-size: 60%; padding-top: 0.25}
-.delicious-banner a { font-size: 70%; color: #666666 }
-.delicious-posts a { text-decoration: none; color: #666666; padding: 1}
-.delicious-posts a:hover { text-decoration: underline}
 
 #heading{
 		background-color: #ffffff;
