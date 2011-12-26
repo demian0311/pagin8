@@ -1,0 +1,183 @@
+h1 {
+		font-size: 125%;
+		background-color: #f8f8f8;
+		border-bottom: 1px dotted #830000;
+      color: #830000;
+		}
+
+h2 {
+		font-size: 115%;
+		border-bottom: 1px dotted #666666;
+		color: #666666;
+		}
+
+h3 {
+		font-size: 100%;
+		color: #666666;
+		}
+
+h4 {
+		font-size: 100%;
+		color: #666666;
+		}
+
+a, a:visited, a:hover, a:active { 
+		text-decoration: none;
+		color:#830000;
+		}
+
+a:hover{ 
+		text-decoration: underline;
+		}
+
+pre{
+		width: 90%;
+		padding: 0 1em 1em 1em;
+		margin: 0 auto 2em auto;
+		background: #f8f8f8;
+		color: #666666;
+		}
+
+code{
+		color: #666666;
+		}
+
+body {
+		font-family: Helvetica, Arial, sans-serif, Tahoma;;
+		font-size: 100%;
+		background-color: #ffffff;
+		margin: 2em;
+		color: #666666;
+		}
+
+table.stats {
+		text-align: left;
+		font-weight: normal;
+		font-size: 90%;
+		color: #ffffff;
+		background-color: #666666;
+		border: 0px;
+		border-spacing: 0px;}
+
+table.stats td {
+		font-size: 85%;
+		background-color: #eeeeee;
+		color: #666666;
+		padding: 4px;
+		text-align: left;
+		border: 1px #eeeeee dotted;
+}
+
+/*
+img{
+		float: right;
+		clear: right;
+		margin: 4px;
+	}
+   */
+
+blockquote{
+		background-color: #f8f8f8;
+		text-decoration: italic;
+		border-left: 3px dotted #666666;
+		border-right: 3px dotted #666666;
+		margin-left: 20px;
+	}
+
+dl{
+		/*border-left: 1px dotted #666666;*/
+	}
+
+dt{
+		/*font-weight: bold;*/
+		text-decoration: underline;
+	}
+
+dd{
+		font-size: 90%;
+		font-style: italic;
+		margin-left: 10px;
+	}
+
+
+TABLE { 
+		color: #f8f8f8;
+		background: #666666; 
+		border-collapse: collapse 
+		}
+
+TD{ 
+		color: #666666;
+		background: #f8f8f8; 
+		border: #666666; 
+		text-align: left;
+		}
+
+#navlist {
+		padding-left: 0;
+		margin-left: 0;
+		width: 200;
+}
+
+#navlist li {
+		list-style: none;
+      font-size: 80%;
+		margin: 0;
+		padding: 0.25em;
+}
+
+#navlist li a { text-decoration: none; }
+
+/* for delicious linkroll */
+.delicious-posts ul, .delicious-posts li, .delicious-banner {
+      color: #666666; padding: 0;  margin: 0; padding-top: 0.25}
+.delicious-posts { margin: 0; padding: 1; width: 150}
+.delicious-post { font-size: 60%; padding-top: 0.25}
+.delicious-banner a { font-size: 70%; color: #666666 }
+.delicious-posts a { text-decoration: none; color: #666666; padding: 1}
+.delicious-posts a:hover { text-decoration: underline}
+
+#heading{
+		background-color: #ffffff;
+		position: absolute;
+		top: 20px;
+		left: left_padpx;
+		font-size: 180%;
+		text-align: left;
+		color: #830000;
+		}
+
+#navigation {
+		width:200; 
+		position: absolute;
+		left: left_padpx;
+		top: 70;
+      border-top: 1px dotted #666666;
+		float:left; 
+		margin-right:2px;
+		}
+
+#content{ 
+		position: absolute; 
+		left: 200;
+		top: 70;
+      border-top: 1px dotted #666666;
+		margin: 0px; 
+      /*width: 80%;*/
+      right: 40px;
+		}
+
+#footing{
+		font-size: 80%;
+		color: #666666;
+		/*background-color: #f8f8f8;*/
+		text-align: right;
+		border-top: 1px dotted #666666;
+		margin-top: 13;
+		width: 100%;
+		height: 13;
+		/*position: fixed; 
+		left: 0px;
+		bottom: 0px;
+      */
+		}
