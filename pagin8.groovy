@@ -19,11 +19,30 @@ class Pagin8{
             println "\t- $fromFile.name"
             new File(config.dir.site + "/" + fromFile.name).withWriter{ destinationFile ->
                fromFile.eachLine{ currLine ->
-                  destinationFile.writeLine(currLine)
+                  destinationFile.writeLine(processLine(currLine))
                }
             }
          }
       }
+   }
+
+   def processLine(String lineIn){
+      if(lineIn == null){
+         return
+      }
+
+      // look for an include
+      if(lineIn.startsWith("<!-->>")){
+         def includeFileName = config.dir.include + "/" + lineIn[6..-4]
+         println("\t\t- $includeFileName <-- including") 
+         def linesOut = ""
+         new File(includeFileName).eachLine{ currLine ->
+            linesOut += currLine + "\n" 
+         }
+         return linesOut
+      }
+
+      lineIn
    }
 }
 
