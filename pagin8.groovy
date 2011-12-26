@@ -2,21 +2,22 @@
 
 class Pagin8{
 
-   def public RAW_HTML_DIR = "./input/raw"
-   def public SITE_DIR = "./site"
+   //def public RAW_HTML_DIR = "./input/raw"
+   //def public SITE_DIR = "./site"
+   def config = new ConfigSlurper().parse(new File('config.groovy').toURL())
 
    def createSiteDirectory(){
       println "creating the site directory"
-      def d1 = new File(SITE_DIR)
+      def d1 = new File(config.dir.site)
       d1.mkdir()
    }
 
    def copyRawHtml(){
       println "copying raw html and CSS"
-      new File(RAW_HTML_DIR).eachFile{ fromFile->
+      new File(config.dir.rawHtml).eachFile{ fromFile->
          if(fromFile.isFile()) {
             println "\t- $fromFile.name"
-            new File(SITE_DIR + "/" + fromFile.name).withWriter{ destinationFile ->
+            new File(config.dir.site + "/" + fromFile.name).withWriter{ destinationFile ->
                fromFile.eachLine{ currLine ->
                   destinationFile.writeLine(currLine)
                }
