@@ -5,9 +5,6 @@ import com.petebevin.markdown.MarkdownProcessor
 @Grab('com.madgag:markdownj-core:0.4.1')
 
 class Pagin8{
-
-   //def public RAW_HTML_DIR = "./input/raw"
-   //def public SITE_DIR = "./site"
    def config = new ConfigSlurper().parse(new File('config.groovy').toURL())
    def markDown = new MarkdownProcessor()
 
@@ -31,25 +28,20 @@ class Pagin8{
       }
    }
 
+   // http://markdownj.org/quickstart.html
    def processMarkdown(){
-      // http://markdownj.org/quickstart.html
       println("processing markdown files")
       def m = new MarkdownProcessor(); 
       new File(config.dir.markdown).eachFile{ markdownFile ->
          def newFileName = config.dir.site + "/" + markdownFile.name[0..-4] + ".html" 
          println("\t- $markdownFile --> $newFileName")
 
-         def html = m.markdown("This is a *simple* test.")
-
-         String markdownHeaderFileName = config.markdownHeader
-         println("markdownHeaderFileName: $markdownHeaderFileName")  
-         String markdownFooterFileName = config.markdownFooter
-         println("markdownFooterFileName : $markdownFooterFileName ")  
-
+         // TODO: process aliases here too
+         // TODO: process includes here too
          def newFile = new File(newFileName)
-         newFile << (new File(markdownHeaderFileName)).readLines().join('\n')
+         newFile << (new File(config.markdownHeader)).readLines().join('\n')
          newFile << m.markdown(markdownFile.readLines().join('\n'))
-         newFile << (new File(markdownFooterFileName)).readLines().join('\n')
+         newFile << (new File(config.markdownFooter)).readLines().join('\n')
       }
    }
 
