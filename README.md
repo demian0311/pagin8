@@ -29,8 +29,7 @@ You can also write your pages using [Markdown](http://daringfireball.net/project
 I use the [markdownj](http://markdownj.org/quickstart.html) project, seems good so far.
 
 
-How to get going
-----------------------------------------------
+## Getting started 
 
 Fork the code and lay out your input directory.
 
