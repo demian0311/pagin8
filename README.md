@@ -12,11 +12,12 @@ For example you can replace all instances of @[backgroundColor] with #FFF.
 This is easily configured in config.groovy in the alias block.
 
 Here is what my alias section of config.groovy looks like right now.
-    alias{
-       h1BackgroundColor= "#f8f8f8"
-       textColor        = "#666666"
-       DLN              = "Demian L. Neidetcher"
-    }
+
+      alias{
+         h1BackgroundColor= "#f8f8f8"
+         textColor        = "#666666"
+         DLN              = "Demian L. Neidetcher"
+      }
 
 
 Includes
@@ -38,18 +39,18 @@ Fork the code and lay out your input directory.
 
 Here's how my input directory looks right now.
 
-   input/
-   ├── include
-   │   ├── footer.html
-   │   └── header.html
-   ├── markdown
-   │   └── sample.md
-   ├── pages
-   ├── raw
-   │   ├── index.html
-   │   ├── resume.html
-   │   └── style.css
-   └── templtate
+      input/
+      ├── include
+      │   ├── footer.html
+      │   └── header.html
+      ├── markdown
+      │   └── sample.md
+      ├── pages
+      ├── raw
+      │   ├── index.html
+      │   ├── resume.html
+      │   └── style.css
+      └── templtate
 
 Any time you want to change values in one place add values in the alias section of
 config.groovy.
