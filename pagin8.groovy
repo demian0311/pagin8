@@ -1,10 +1,15 @@
 #!/usr/bin/env groovy
 
+import com.petebevin.markdown.MarkdownProcessor
+
+@Grab('com.madgag:markdownj-core:0.4.1')
+
 class Pagin8{
 
    //def public RAW_HTML_DIR = "./input/raw"
    //def public SITE_DIR = "./site"
    def config = new ConfigSlurper().parse(new File('config.groovy').toURL())
+   def markDown = new MarkdownProcessor()
 
    def createSiteDirectory(){
       println "creating the site directory"
@@ -26,6 +31,28 @@ class Pagin8{
       }
    }
 
+   def processMarkdown(){
+      // http://markdownj.org/quickstart.html
+      println("processing markdown files")
+      def m = new MarkdownProcessor(); 
+      new File(config.dir.markdown).eachFile{ markdownFile ->
+         def newFileName = config.dir.site + "/" + markdownFile.name[0..-4] + ".html" 
+         println("\t- $markdownFile --> $newFileName")
+
+         def html = m.markdown("This is a *simple* test.")
+
+         String markdownHeaderFileName = config.markdownHeader
+         println("markdownHeaderFileName: $markdownHeaderFileName")  
+         String markdownFooterFileName = config.markdownFooter
+         println("markdownFooterFileName : $markdownFooterFileName ")  
+
+         def newFile = new File(newFileName)
+         newFile << (new File(markdownHeaderFileName)).readLines().join('\n')
+         newFile << m.markdown(markdownFile.readLines().join('\n'))
+         newFile << (new File(markdownFooterFileName)).readLines().join('\n')
+      }
+   }
+
    def processLine(String lineIn){
       if(lineIn == null){
          return
@@ -42,7 +69,6 @@ class Pagin8{
       }
 
       // look for aliases
-      //def map = config.alias.flatten
       config.alias.keySet().each{ currKey ->
          def fromString = config.aliasBegin + currKey + config.aliasEnd
 
@@ -51,9 +77,6 @@ class Pagin8{
             println("\t\t- alias  : $fromString -> $toString ") 
             lineIn = ((java.lang.String)lineIn).replace(fromString, toString)
          }
-
-
-         //lineIn = lineIn.replaceAll(fromString, toString) 
       }
 
       lineIn
@@ -63,3 +86,4 @@ class Pagin8{
 def pagin8 = new Pagin8()
 pagin8.createSiteDirectory()
 pagin8.copyRawHtml()
+pagin8.processMarkdown()

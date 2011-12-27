@@ -10,8 +10,11 @@ dir{
    rawHtml = "./input/raw"
    site = "./site"
    include = "./input/include"
+   markdown = "./input/markdown"
 }
 
+markdownHeader = "./input/include/header.html"
+markdownFooter = "./input/include/footer.html"
 aliasBegin = "@["
 aliasEnd = "]"
 
