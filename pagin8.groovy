@@ -14,9 +14,30 @@ class Pagin8{
       d1.mkdir()
    }
 
+   def handleBlogEntries(){
+      // go through the years directory
+      new File(config.dir.blog).eachFile{ yearDir ->
+         //println("yearDir: $yearDir")
+         println("year: $yearDir.name")
+         if(yearDir.isDirectory()){
+            yearDir.eachFile{ monthDir ->
+               println("month: $monthDir.name")
+               if(monthDir.isDirectory()){
+                  monthDir.eachFile{ dayDir ->
+                     println("day: $dayDir.name")
+                     dayDir.eachFile{ entryFile ->
+                        println("entry: $entryFile")
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+
    def copyRawHtml(){
       println "copying raw html and CSS"
-      new File(config.dir.rawHtml).eachFile{ fromFile->
+      new File(config.dir.input).eachFile{ fromFile->
          if(fromFile.isFile()) {
             if(fromFile.name.endsWith(".html") || fromFile.name.endsWith(".css")){
                println "\t- $fromFile.name"
@@ -34,7 +55,7 @@ class Pagin8{
    def processMarkdown(){
       println("processing markdown files")
       def m = new MarkdownProcessor(); 
-      new File(config.dir.markdown).eachFile{ markdownFile ->
+      new File(config.dir.input).eachFile{ markdownFile ->
          if(markdownFile.name.endsWith(".md")){ 
 
             def newFileName = config.dir.site + "/" + markdownFile.name[0..-4] + ".html" 
@@ -58,7 +79,7 @@ class Pagin8{
       // look for includes
       if(lineIn.startsWith("<!--include:")){
          lineIn += "\n"
-         def includeFileName = config.dir.include + "/" + lineIn[12..-5]
+         def includeFileName = config.dir.input+ "/" + lineIn[12..-5]
          println("\t\t- include: $includeFileName") 
          new File(includeFileName).eachLine{ currLine ->
             lineIn += currLine + "\n" 
@@ -84,3 +105,4 @@ def pagin8 = new Pagin8()
 pagin8.createSiteDirectory()
 pagin8.copyRawHtml()
 pagin8.processMarkdown()
+//pagin8.handleBlogEntries()
