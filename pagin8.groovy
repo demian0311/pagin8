@@ -14,6 +14,7 @@ class Pagin8{
       d1.mkdir()
    }
 
+
    def handleBlogEntries(){
       // go through the years directory
       new File(config.dir.blog).eachFile{ yearDir ->
