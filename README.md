@@ -21,7 +21,7 @@ Here is what my alias section of config.groovy looks like right now.
 
 #### Includes
 Instead of repeating portions of HTML you can just include.
-    <!--include:footer.html-->
+    <!--include:footer.htm-->
 
 
 #### Markdown
@@ -30,23 +30,6 @@ I use the [markdownj](http://markdownj.org/quickstart.html) project, seems good 
 
 
 ## Getting started 
-
-Fork the code and lay out your input directory.
-
-Here's how my input directory looks right now.
-
-      input/
-      ├── include
-      │   ├── footer.html
-      │   └── header.html
-      ├── markdown
-      │   └── sample.md
-      ├── pages
-      ├── raw
-      │   ├── index.html
-      │   ├── resume.html
-      │   └── style.css
-      └── templtate
 
 Any time you want to change values in one place add values in the alias section of
 config.groovy.
