@@ -5,7 +5,7 @@ import com.petebevin.markdown.MarkdownProcessor
 @Grab('com.madgag:markdownj-core:0.4.1')
 
 class Pagin8{
-   def config = new ConfigSlurper().parse(new File('config.groovy').toURL())
+   def static config = new ConfigSlurper().parse(new File('config.groovy').toURL())
    def markDown = new MarkdownProcessor()
 
    def createSiteDirectory(){
@@ -15,6 +15,13 @@ class Pagin8{
    }
 
 
+   /*
+   the blog handling should more be about indexing stuff inside of 
+   the target blog directory and making that available in reverse
+   chronological order.
+   */
+
+   /*
    def handleBlogEntries(){
       // go through the years directory
       new File(config.dir.blog).eachFile{ yearDir ->
@@ -35,39 +42,42 @@ class Pagin8{
          }
       }
    }
-
-   def copyRawHtml(){
-      println "copying raw html and CSS"
-      new File(config.dir.input).eachFile{ fromFile->
-         if(fromFile.isFile()) {
-            if(fromFile.name.endsWith(".html") || fromFile.name.endsWith(".css")){
-               println "\t- $fromFile.name"
-               new File(config.dir.site + "/" + fromFile.name).withWriter{ destinationFile ->
-                  fromFile.eachLine{ currLine ->
-                     destinationFile.writeLine(processLine(currLine))
-                  }
-               }
-            }
-         }
-      }
-   }
+   */
 
    // http://markdownj.org/quickstart.html
-   def processMarkdown(){
-      println("processing markdown files")
+   def processInput(File currentDirectory){
+      println("processing markdown files in $currentDirectory")
       def m = new MarkdownProcessor(); 
-      new File(config.dir.input).eachFile{ markdownFile ->
-         if(markdownFile.name.endsWith(".md")){ 
+      new File(config.dir.input).eachFile{ currentFile ->
 
-            def newFileName = config.dir.site + "/" + markdownFile.name[0..-4] + ".html" 
-            println("\t- $markdownFile --> $newFileName")
+/*
+         if(currentFile.isDirectory() && currentFile != currentDirectory){
+            // recurse down, how to preserve the directory structure
+            processMarkdown(currentFile)
+         }
+         */
 
+         if(currentFile.name.endsWith(".md")){ 
+            def newFileName = config.dir.site + "/" + currentFile.name[0..-4] + ".html" 
+            println("\t-MARKDOWN: $currentFile --> $newFileName")
             // TODO: process aliases here too
             // TODO: process includes here too
             def newFile = new File(newFileName)
             newFile << (new File(config.markdownHeader)).readLines().join('\n')
-            newFile << m.markdown(markdownFile.readLines().join('\n'))
+            newFile << m.markdown(currentFile.readLines().join('\n'))
             newFile << (new File(config.markdownFooter)).readLines().join('\n')
+         }
+         else if(currentFile.name.endsWith(".html") || currentFile.name.endsWith(".css")){
+            println "\t-RAW:  $currentFile.name"
+            new File(config.dir.site + "/" + currentFile.name).withWriter{ destinationFile ->
+               currentFile.eachLine{ currLine ->
+                  destinationFile.writeLine(processLine(currLine))
+               }
+            }
+         }
+         else{
+            // what else?
+            println "\t-DUNNO: $currentFile.name"
          }
       }
    }
@@ -100,10 +110,12 @@ class Pagin8{
 
       lineIn
    }
-}
 
-def pagin8 = new Pagin8()
-pagin8.createSiteDirectory()
-pagin8.copyRawHtml()
-pagin8.processMarkdown()
-//pagin8.handleBlogEntries()
+
+   static void main(String[] args) {
+      def pagin8 = new Pagin8()
+      pagin8.createSiteDirectory()
+      pagin8.processInput(new File(config.dir.input))
+      //pagin8.handleBlogEntries()
+   }
+}
