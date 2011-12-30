@@ -7,12 +7,12 @@ alias{
 
 // you probably don't need to mess with any of these values
 dir{
-   site = "./site"               // the destination directory
+   site = "site"               // the destination directory
    //rawHtml = "./input"       // files will just be copied over, with aliases and includes applied
    //include = "./input"   // snippest to pull from <!--include:footer.html-->
    //markdown = "./input" // where markdown files are
-   input = "./input" // where markdown files are
-   blog = "./input/blog"
+   input = "input" // where markdown files are
+   blog = "blog"
 }
 
 markdownHeader = "./input/header.htm"

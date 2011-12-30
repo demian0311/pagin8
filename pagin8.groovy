@@ -7,6 +7,7 @@ import com.petebevin.markdown.MarkdownProcessor
 class Pagin8{
    def static config = new ConfigSlurper().parse(new File('config.groovy').toURL())
    def static markDown = new MarkdownProcessor() // http://markdownj.org/quickstart.html
+   def blogEntries = []
 
    def createSiteDirectory(){
       println "creating the site directory"
@@ -43,6 +44,8 @@ class Pagin8{
             def newFileName = createDestinationPath(currentDirectory.getPath()) + "/" + currentFile.name[0..-4] + ".html" 
             println("\t-MARKDOWN: $currentFile --> $newFileName")
             def newFile = new File(newFileName)
+            indexBlogEntry(newFile)
+
             newFile << (new File(config.markdownHeader)).readLines().join('\n')
             newFile << m.markdown(currentFile.readLines().join('\n'))
             newFile << (new File(config.markdownFooter)).readLines().join('\n')
@@ -51,8 +54,10 @@ class Pagin8{
             println "\t-RAW     : $currentFile.name"
 
             def newFileName = createDestinationPath(currentDirectory.getPath()) + "/" + currentFile.name
+            def newFile = new File(newFileName)
+            indexBlogEntry(newFile) // 
 
-            new File(newFileName).withWriter{ destinationFile ->
+            newFile.withWriter{ destinationFile ->
                currentFile.eachLine{ currLine ->
                   destinationFile.writeLine(processLine(currLine))
                }
@@ -67,6 +72,30 @@ class Pagin8{
             println "\t-DUNNO   : $currentFile.name"
          }
       }
+   }
+
+   /** the blog entry file should have some meta-data */
+   def indexBlogEntry(File blogEntryFile){
+      def blogDestinationPath = config.dir.site + "/" + config.dir.blog
+      def path = blogEntryFile.getPath()
+      if(path[0..blogDestinationPath.size() - 1] == blogDestinationPath){
+         //println("~~~~~~~~ got a blog entry: $blogEntryFile")
+         // we could parse and look for meta data
+         // we want to slice the "site" off the front of the path
+         def siteDirSize = config.dir.site.size()
+         def blogEntryMap = [entryPath: path[siteDirSize..-1]]
+         blogEntries.add(blogEntryMap)
+      }
+   }
+
+   def createBlogIndex(){
+      def newFile = new File(config.dir.site + "/" + config.dir.blog + "/index.html")
+      newFile << "<html><head><title>blog</title></head><body><ul>blog entries"
+      for( i in blogEntries){
+         //println("blog entry: " + i)
+         newFile << "<ul><a href='$i.entryPath'>$i.entryPath</a></ul>"
+      }
+      newFile << "</body></html>"
    }
 
    def processLine(String lineIn){
@@ -98,11 +127,15 @@ class Pagin8{
       lineIn
    }
 
-
    static void main(String[] args) {
       def pagin8 = new Pagin8()
       pagin8.createSiteDirectory()
       pagin8.processInput(new File(config.dir.input), "")
-      // TODO: index the blog entries pagin8.handleBlogEntries()
+
+      for( i in pagin8.blogEntries){
+         println("blog entry: " + i)
+      }
+
+      pagin8.createBlogIndex() // creates a /blog/index.html file for you
    }
 }
