@@ -6,7 +6,7 @@ import com.petebevin.markdown.MarkdownProcessor
 
 class Pagin8{
    def static config = new ConfigSlurper().parse(new File('config.groovy').toURL())
-   def markDown = new MarkdownProcessor()
+   def static markDown = new MarkdownProcessor() // http://markdownj.org/quickstart.html
 
    def createSiteDirectory(){
       println "creating the site directory"
@@ -14,70 +14,57 @@ class Pagin8{
       d1.mkdir()
    }
 
+   /* has side effect of creating the directories if they don't exist */
+   def createDestinationPath(String fromPath){
+      println ("*** in: $fromPath")
+      def inputDirSize = config.dir.input.size() 
+      println("*** inputDirSize: $inputDirSize")
 
-   /*
-   the blog handling should more be about indexing stuff inside of 
-   the target blog directory and making that available in reverse
-   chronological order.
-   */
-
-   /*
-   def handleBlogEntries(){
-      // go through the years directory
-      new File(config.dir.blog).eachFile{ yearDir ->
-         //println("yearDir: $yearDir")
-         println("year: $yearDir.name")
-         if(yearDir.isDirectory()){
-            yearDir.eachFile{ monthDir ->
-               println("month: $monthDir.name")
-               if(monthDir.isDirectory()){
-                  monthDir.eachFile{ dayDir ->
-                     println("day: $dayDir.name")
-                     dayDir.eachFile{ entryFile ->
-                        println("entry: $entryFile")
-                     }
-                  }
-               }
-            }
-         }
+      def pathWithoutInputDir = ""
+      if(fromPath != config.dir.input){
+         pathWithoutInputDir = fromPath[inputDirSize..-1]
       }
+      println("pathWithoutInputDir : $pathWithoutInputDir")
+
+      def out = config.dir.site + pathWithoutInputDir
+
+      (new File(out)).mkdirs()
+
+      println ("*** out: $out")
+      out
    }
-   */
 
-   // http://markdownj.org/quickstart.html
-   def processInput(File currentDirectory){
-      println("processing markdown files in $currentDirectory")
+   def processInput(File currentDirectory, String parentPath){
+      println("currentDirectory: $currentDirectory")
+      //println("parentPath      : $parentPath")
       def m = new MarkdownProcessor(); 
-      new File(config.dir.input).eachFile{ currentFile ->
-
-/*
-         if(currentFile.isDirectory() && currentFile != currentDirectory){
-            // recurse down, how to preserve the directory structure
-            processMarkdown(currentFile)
-         }
-         */
-
+      currentDirectory.eachFile{ currentFile ->
          if(currentFile.name.endsWith(".md")){ 
-            def newFileName = config.dir.site + "/" + currentFile.name[0..-4] + ".html" 
+            def newFileName = createDestinationPath(currentDirectory.getPath()) + "/" + currentFile.name[0..-4] + ".html" 
             println("\t-MARKDOWN: $currentFile --> $newFileName")
-            // TODO: process aliases here too
-            // TODO: process includes here too
             def newFile = new File(newFileName)
             newFile << (new File(config.markdownHeader)).readLines().join('\n')
             newFile << m.markdown(currentFile.readLines().join('\n'))
             newFile << (new File(config.markdownFooter)).readLines().join('\n')
          }
          else if(currentFile.name.endsWith(".html") || currentFile.name.endsWith(".css")){
-            println "\t-RAW:  $currentFile.name"
-            new File(config.dir.site + "/" + currentFile.name).withWriter{ destinationFile ->
+            println "\t-RAW     : $currentFile.name"
+
+            def newFileName = createDestinationPath(currentDirectory.getPath()) + "/" + currentFile.name
+
+            new File(newFileName).withWriter{ destinationFile ->
                currentFile.eachLine{ currLine ->
                   destinationFile.writeLine(processLine(currLine))
                }
             }
          }
+         else if(currentFile.isDirectory()){
+            println("\t-DIR     : $currentFile")
+            processInput(currentFile, currentFile.name + "/")
+         }
          else{
             // what else?
-            println "\t-DUNNO: $currentFile.name"
+            println "\t-DUNNO   : $currentFile.name"
          }
       }
    }
@@ -115,7 +102,7 @@ class Pagin8{
    static void main(String[] args) {
       def pagin8 = new Pagin8()
       pagin8.createSiteDirectory()
-      pagin8.processInput(new File(config.dir.input))
-      //pagin8.handleBlogEntries()
+      pagin8.processInput(new File(config.dir.input), "")
+      // TODO: index the blog entries pagin8.handleBlogEntries()
    }
 }
