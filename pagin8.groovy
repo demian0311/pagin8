@@ -90,12 +90,30 @@ class Pagin8{
 
    def createBlogIndex(){
       def newFile = new File(config.dir.site + "/" + config.dir.blog + "/index.html")
+      def blogIndex= new File(config.blogIndex)
+
+      blogIndex.eachLine{ currLine ->
+         if(currLine == '<!--blog-entries-->'){
+            // write the entries here
+            newFile << "<ul>"
+            for( i in blogEntries){
+               //println("blog entry: " + i)
+               newFile << "<ul><a href='$i.entryPath'>$i.entryPath</a></ul>"
+            }
+            newFile << "</ul>"
+         }
+
+         newFile << processLine(currLine)
+      }
+
+      /*
       newFile << "<html><head><title>blog</title></head><body><ul>blog entries"
       for( i in blogEntries){
          //println("blog entry: " + i)
          newFile << "<ul><a href='$i.entryPath'>$i.entryPath</a></ul>"
       }
       newFile << "</body></html>"
+      */
    }
 
    def processLine(String lineIn){

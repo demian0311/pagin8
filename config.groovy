@@ -15,6 +15,7 @@ dir{
    blog = "blog"
 }
 
+blogIndex = "./input/blog/index.htm"
 markdownHeader = "./input/header.htm"
 markdownFooter = "./input/footer.htm"
 aliasBegin = "@["
