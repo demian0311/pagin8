@@ -78,15 +78,10 @@ class Pagin8{
       def blogDestinationPath = config.dir.site + "/" + config.dir.blog
       def path = blogEntryFile.getPath()
       if(path[0..blogDestinationPath.size() - 1] == blogDestinationPath){
-         // TODO: we could parse and look for meta data
          def siteDirSize = config.dir.site.size()
          def pathWithoutSiteDir = path[siteDirSize..-1]
 
-         //def splitPathWithoutSiteDir = pathWithoutSiteDir.split('\') 
          def sections = pathWithoutSiteDir.split("/")
-         //for(section in sections){
-         //   println("section: $section")
-         // }
          def blogEntryMap = [
             entryPath: pathWithoutSiteDir,
             year: sections[2],
@@ -107,9 +102,7 @@ class Pagin8{
 
       blogIndex.eachLine{ currLine ->
          if(currLine == '<!--blog-entries-->'){
-            // write the entries here
             for( i in blogEntries.sort{it.yeah + it.month + it.date}.reverse()){
-               //println("blog entry: " + i)
                newFile << "<ul>" + i.year + "." + i.month + "." + i.date + ": <a href='$i.entryPath'>$i.title</a></ul>"
                // year, month, date, title, entryPath
             }
@@ -117,15 +110,6 @@ class Pagin8{
 
          newFile << processLine(currLine)
       }
-
-      /*
-      newFile << "<html><head><title>blog</title></head><body><ul>blog entries"
-      for( i in blogEntries){
-         //println("blog entry: " + i)
-         newFile << "<ul><a href='$i.entryPath'>$i.entryPath</a></ul>"
-      }
-      newFile << "</body></html>"
-      */
    }
 
    def processLine(String lineIn){
