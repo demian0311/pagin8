@@ -127,7 +127,7 @@ class Pagin8{
          def includeFileName = config.dir.input+ "/" + lineIn[12..-5]
          println("\t\t- include: $includeFileName") 
          new File(includeFileName).eachLine{ currLine ->
-            lineIn += currLine + "\n" 
+            lineIn += processLine(currLine) + "\n" 
          }
       }
 
