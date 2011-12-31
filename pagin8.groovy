@@ -37,7 +37,6 @@ class Pagin8{
 
    def processInput(File currentDirectory, String parentPath){
       println("currentDirectory: $currentDirectory")
-      //println("parentPath      : $parentPath")
       def m = new MarkdownProcessor(); 
       currentDirectory.eachFile{ currentFile ->
          if(currentFile.name.endsWith(".md")){ 
@@ -79,11 +78,25 @@ class Pagin8{
       def blogDestinationPath = config.dir.site + "/" + config.dir.blog
       def path = blogEntryFile.getPath()
       if(path[0..blogDestinationPath.size() - 1] == blogDestinationPath){
-         //println("~~~~~~~~ got a blog entry: $blogEntryFile")
-         // we could parse and look for meta data
-         // we want to slice the "site" off the front of the path
+         // TODO: we could parse and look for meta data
          def siteDirSize = config.dir.site.size()
-         def blogEntryMap = [entryPath: path[siteDirSize..-1]]
+         def pathWithoutSiteDir = path[siteDirSize..-1]
+
+         //def splitPathWithoutSiteDir = pathWithoutSiteDir.split('\') 
+         def sections = pathWithoutSiteDir.split("/")
+         //for(section in sections){
+         //   println("section: $section")
+         // }
+         def blogEntryMap = [
+            entryPath: pathWithoutSiteDir,
+            year: sections[2],
+            month: sections[3],
+            date: sections[4]]
+
+         // turn the file name into a title
+         java.lang.String niceName = sections[5].replaceAll('_', ' ')
+         blogEntryMap.put('title', niceName[0..niceName.lastIndexOf('.') - 1])
+
          blogEntries.add(blogEntryMap)
       }
    }
@@ -95,12 +108,11 @@ class Pagin8{
       blogIndex.eachLine{ currLine ->
          if(currLine == '<!--blog-entries-->'){
             // write the entries here
-            newFile << "<ul>"
-            for( i in blogEntries){
+            for( i in blogEntries.sort{it.yeah + it.month + it.date}.reverse()){
                //println("blog entry: " + i)
-               newFile << "<ul><a href='$i.entryPath'>$i.entryPath</a></ul>"
+               newFile << "<ul>" + i.year + "." + i.month + "." + i.date + ": <a href='$i.entryPath'>$i.title</a></ul>"
+               // year, month, date, title, entryPath
             }
-            newFile << "</ul>"
          }
 
          newFile << processLine(currLine)
