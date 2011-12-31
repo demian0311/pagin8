@@ -46,9 +46,9 @@ class Pagin8{
             def newFile = new File(newFileName)
             indexBlogEntry(newFile)
 
-            newFile << (new File(config.markdownHeader)).readLines().join('\n')
-            newFile << m.markdown(currentFile.readLines().join('\n'))
-            newFile << (new File(config.markdownFooter)).readLines().join('\n')
+            newFile << processLine((new File(config.markdownHeader)).readLines().join('\n'))
+            newFile << processLine(m.markdown(currentFile.readLines().join('\n')))
+            newFile << processLine((new File(config.markdownFooter)).readLines().join('\n'))
          }
          else if(currentFile.name.endsWith(".html") || currentFile.name.endsWith(".css")){
             println "\t-RAW     : $currentFile.name"
