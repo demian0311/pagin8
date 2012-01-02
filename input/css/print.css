@@ -1,13 +1,13 @@
 h1 {
 		font-weight: bold;
-		font-size: 150%;
+		font-size: 125%;
 		color: #000000;
 		background-color: #dddddd;
 		border-bottom: 1px solid #aa0000;
 		}
 
 h2 {
-		font-size: 125%;
+		font-size: 110%;
 		font-weight: bold;
 		color: #000000;
 		background-color: #dddddd;
@@ -15,7 +15,7 @@ h2 {
 		}
 
 h3 {
-		font-size: 110%;
+		font-size: 100%;
 		font-weight: bold;
 		color: #000000;
 		background-color: #dddddd;
@@ -36,7 +36,7 @@ pre, code{
 
 body {
 		font-family: Helvetica, Arial, sans-serif, Tahoma;
-		font-size: 100%;
+		font-size: 90%;
 		background-color: #ffffff;
 		margin: 2em;
 		color: #000000;
