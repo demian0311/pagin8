@@ -115,17 +115,6 @@ class Pagin8{
          newFile << processLine(currLine)
       }
    }
-   /*
-     <entry>
-    <id>@[entryId]</id>
-    <title>@entryTitle]</title>
-    <link href="@glink]"/>
-    <updated>@entryUpdated]</updated>
-    <summary>@entrySummary]</summary>
-    <content type="html">
-   @entryContent]
-    </content>
-  </entry>*/
 
    def createBlogFeed(){
       def newFile = new File(config.dir.site + "/" + config.dir.blog + "/atom.xml")
@@ -142,9 +131,6 @@ class Pagin8{
                newFile << "<updated>$i.year-$i.month-${i.date}T00:00:00</updated>"
                newFile << "<summary>$i.title</summary>"
                /*
-               entryPath: pathWithoutSiteDir,
-               year: sections[2],
-               month: sections[3],
                date: sections[4]]
                title */
                //newFile << "<content type="html">"
