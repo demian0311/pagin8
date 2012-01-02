@@ -106,7 +106,7 @@ class Pagin8{
 
       blogIndex.eachLine{ currLine ->
          if(currLine == '<!--blog-entries-->'){
-            for( i in blogEntries.sort{it.yeah + it.month + it.date}.reverse()){
+            for( i in blogEntries.sort{it.year + it.month + it.date}.reverse()){
                newFile << "<li>" + i.year + "." + i.month + "." + i.date + ": <a href='$i.entryPath'>$i.title</a></li>"
                // year, month, date, title, entryPath
             }
@@ -122,7 +122,7 @@ class Pagin8{
 
       feedTemplate.eachLine{ currLine ->
          if(currLine == '<!--feed-entries-->'){
-            for( i in blogEntries.sort{it.yeah + it.month + it.date}.reverse()){
+            for( i in blogEntries.sort{it.year + it.month + it.date}.reverse()){
                newFile << "<entry>"
 
                newFile << "<id>$i.entryPath</id>"
