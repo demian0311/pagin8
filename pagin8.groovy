@@ -138,8 +138,8 @@ class Pagin8{
 
                newFile << "<id>$i.entryPath</id>"
                newFile << "<title>$i.title</title>"
-               newFile << "<link href='$i.entryPath'/>"
-               newFile << "<updated>$i.year-$i.month-$i.dateT00:00:00</updated>"
+               newFile << "<link href='http://neidetcher.com$i.entryPath'/>"
+               newFile << "<updated>$i.year-$i.month-${i.date}T00:00:00</updated>"
                newFile << "<summary>$i.title</summary>"
                /*
                entryPath: pathWithoutSiteDir,
