@@ -1,5 +1,5 @@
 About
-=================
+---------------------
 I am a software engineer in Denver, Colorado.
 
 I like to lift weights, hang out with my family and

@@ -16,6 +16,7 @@ dir{
 }
 
 blogIndex = "./input/blog/index.htm"
+feedTemplate = "./input/blog/atom.xml"
 markdownHeader = "./input/header.htm"
 markdownFooter = "./input/footer.htm"
 aliasBegin = "@["

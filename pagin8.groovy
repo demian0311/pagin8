@@ -1,12 +1,16 @@
 #!/usr/bin/env groovy
 
 import com.petebevin.markdown.MarkdownProcessor
+import java.util.Date
+import java.text.SimpleDateFormat
 
 @Grab('com.madgag:markdownj-core:0.4.1')
 
 class Pagin8{
    def static config = new ConfigSlurper().parse(new File('config.groovy').toURL())
    def static markDown = new MarkdownProcessor() // http://markdownj.org/quickstart.html
+   def static currentDate = (new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss")).format(new Date())
+
    def blogEntries = []
 
    def createSiteDirectory(){
@@ -111,6 +115,53 @@ class Pagin8{
          newFile << processLine(currLine)
       }
    }
+   /*
+     <entry>
+    <id>@[entryId]</id>
+    <title>@entryTitle]</title>
+    <link href="@glink]"/>
+    <updated>@entryUpdated]</updated>
+    <summary>@entrySummary]</summary>
+    <content type="html">
+   @entryContent]
+    </content>
+  </entry>*/
+
+   def createBlogFeed(){
+      def newFile = new File(config.dir.site + "/" + config.dir.blog + "/atom.xml")
+      def feedTemplate= new File(config.feedTemplate)
+
+      feedTemplate.eachLine{ currLine ->
+         if(currLine == '<!--feed-entries-->'){
+            for( i in blogEntries.sort{it.yeah + it.month + it.date}.reverse()){
+               newFile << "<entry>"
+
+               newFile << "<id>$i.entryPath</id>"
+               newFile << "<title>$i.title</title>"
+               newFile << "<link href='$i.entryPath'/>"
+               newFile << "<updated>$i.year-$i.month-$i.dateT00:00:00</updated>"
+               newFile << "<summary>$i.title</summary>"
+               /*
+               entryPath: pathWithoutSiteDir,
+               year: sections[2],
+               month: sections[3],
+               date: sections[4]]
+               title */
+               //newFile << "<content type="html">"
+               //newFile << "@entryContent]"
+               //newFile << "</content>"
+
+               newFile << "</entry>"
+               /*
+               newFile << "<li>" + i.year + "." + i.month + "." + i.date + ": <a href='$i.entryPath'>$i.title</a></li>"
+               */
+               // year, month, date, title, entryPath
+            }
+         }
+
+         newFile << processLine(currLine)
+      }
+   }
 
    def processLine(String lineIn){
       if(lineIn == null){
@@ -118,6 +169,8 @@ class Pagin8{
       }
 
       // look for includes
+      // TODO: figure out a way to dynamically create aliases for the templates
+      // title = resume
       if(lineIn.startsWith("<!--include:")){
          lineIn += "\n"
          def includeFileName = config.dir.input+ "/" + lineIn[12..-5]
@@ -138,18 +191,20 @@ class Pagin8{
          }
       }
 
+      def currentDateToken = config.aliasBegin + "currentDate" + config.aliasEnd
+      lineIn = ((java.lang.String)lineIn).replace(currentDateToken, currentDate)
+
       lineIn
    }
 
    static void main(String[] args) {
       def pagin8 = new Pagin8()
+      
       pagin8.createSiteDirectory()
       pagin8.processInput(new File(config.dir.input), "")
-
-      for( i in pagin8.blogEntries){
-         println("blog entry: " + i)
-      }
-
       pagin8.createBlogIndex() // creates a /blog/index.html file for you
+      pagin8.createBlogFeed() // creates a /blog/index.html file for you
+
+      //println("foo: " + pagin8.generateCurrentDate())
    }
 }

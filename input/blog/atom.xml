@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xml:lang="en"
+      xml:base="http://neidetcher.com">
+  <id>http://www.neidetcher.com/blog</id>
+  <title>Demian Neidetcher</title>
+  <updated>@[currentDate]</updated>
+  <link href="/blog" />
+  <link rel="self" href="/blog/atom.xml" type="application/atom+xml" />
+  <author>
+    <name>Demian Neidetcher</name>
+    <uri>http://neidetcher.com</uri>
+    <email>demian0311@gmail.com</email>
+  </author>
+<!--feed-entries-->
+</feed>
