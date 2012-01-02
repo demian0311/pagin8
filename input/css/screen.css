@@ -107,57 +107,19 @@ TD{
 		text-align: left;
 		}
 
-/*#navlist {
-		padding-left: 0;
-		margin-left: 0;
-		width: 200;
-}*/
-
-/*#navlist li {
-		list-style: none;
-      font-size: 80%;
-		margin: 0;
-		padding: 0.25em;
-}*/
-
-/*#navlist li a { text-decoration: none; }*/
-
 #heading{
 		background-color: #ffffff;
 		position: absolute;
 		top: 20px;
-		/*left: left_padpx;*/
 		font-size: 180%;
 		text-align: left;
 		color: #830000;
 		}
-
-/*#navigation {
-		width:200; 
-		position: absolute;
-		left: left_padpx;
-		top: 70;
-      border-top: 1px dotted #666666;
-		float:left; 
-		margin-right:2px;
-		}*/
-
-/*#content{ 
-		position: absolute; 
-		left: 200;
-		top: 70;
-      border-top: 1px dotted #666666;
-		margin: 0px; 
-      width: 80%;
-      right: 40px;
-		}*/
 
 #footer{
 		font-size: 80%;
 		color: #666666;
 		text-align: right;
 		border-top: 1px dotted #666666;
-		/*margin-top: 13;*/
 		width: 100%;
-		/*height: 13;*/
 		}
