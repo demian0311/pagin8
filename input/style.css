@@ -46,7 +46,7 @@ body {
 		font-family: Helvetica, Arial, sans-serif, Tahoma;
 		font-size: 100%;
 		background-color: #ffffff;
-		margin: 4em;
+		margin: 2em;
 		color: @[textColor];
       width: 80%;
 		}
