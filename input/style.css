@@ -46,9 +46,10 @@ body {
 		font-family: Helvetica, Arial, sans-serif, Tahoma;
 		font-size: 100%;
 		background-color: #ffffff;
-		margin: 2em;
+		margin-top: 2em;
+      margin-left: 10%;
+   	margin-right: 10%;
 		color: @[textColor];
-      width: 80%;
 		}
 
 table.stats {
