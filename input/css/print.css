@@ -1,0 +1,92 @@
+h1 {
+		font-weight: bold;
+		font-size: 150%;
+		color: #000000;
+		background-color: #dddddd;
+		border-bottom: 1px solid #aa0000;
+		}
+
+h2 {
+		font-size: 125%;
+		font-weight: bold;
+		color: #000000;
+		background-color: #dddddd;
+		border-bottom: 1px solid #000000;
+		}
+
+h3 {
+		font-size: 110%;
+		font-weight: bold;
+		color: #000000;
+		background-color: #dddddd;
+		}
+
+a {color: #aa0000;}
+a:visited {color:#aa0000;}
+a:hover {color: #aa0000;}
+a:active { color:#aa0000;}
+
+pre, code{
+		background-color: #dddddd;
+		border-left: 1px solid #000000;
+		}
+
+body {
+		font-family: Tahoma, Arial, Helvetica, sans-serif;;
+		font-size: 100%;
+		background-color: #ffffff;
+		margin: 2em;
+		color: #000000;
+		}
+
+table.stats {
+		text-align: left;
+		font-weight: normal;
+		font-size: 90%;
+		color: #ffffff;
+		background-color: #666666;
+		border: 0px;
+		border-spacing: 0px;
+		}
+
+table.stats td {
+		font-size: 85%;
+		background-color: #eeeeee;
+		color: #666666;
+		padding: 4px;
+		text-align: left;
+		border: 1px #eeeeee solid;
+		}
+
+#navlist {
+		visibility: hidden;
+		padding-left: 0;
+		margin-left: 0;
+		border-bottom: 1px solid #dddddd;
+		width: 0;
+		}
+
+#banner{
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		/*width: 100%;*/
+		font-weight: bold;
+		font-size: 150%;
+		text-align: left;
+		color: #aa0000;
+		background-color: #dddddd;
+		border-bottom: 1px solid #000000;
+		}
+
+#navigation {
+		display: none;
+		}
+
+#content{ 
+		}
+
+#footer { 
+		display: none;
+		}
+
