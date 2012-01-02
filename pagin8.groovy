@@ -103,7 +103,7 @@ class Pagin8{
       blogIndex.eachLine{ currLine ->
          if(currLine == '<!--blog-entries-->'){
             for( i in blogEntries.sort{it.yeah + it.month + it.date}.reverse()){
-               newFile << "<ul>" + i.year + "." + i.month + "." + i.date + ": <a href='$i.entryPath'>$i.title</a></ul>"
+               newFile << "<li>" + i.year + "." + i.month + "." + i.date + ": <a href='$i.entryPath'>$i.title</a></li>"
                // year, month, date, title, entryPath
             }
          }
