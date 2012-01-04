@@ -1,6 +1,6 @@
 Here's some opensource software that I have worked on.
 
-=== SiloBase ===
+### SiloBase ###
 <https://github.com/demian0311/silobase>
 
 At work we wanted to give people within the company ad-hoc access to data.  But we didn't
@@ -15,7 +15,7 @@ It's not much, kind of ugly but it worked well for the task.  There isn't much c
 It highly leverages the capabilities of Spring JDBC template.
 
 
-=== Pagin8 ===
+### Pagin8 ###
 <https://github.com/demian0311/pagin8>
 
 I installed WordPress on my anemic little SliceHost VPS, it didn't perform as well as I
