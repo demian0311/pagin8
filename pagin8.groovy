@@ -43,15 +43,20 @@ class Pagin8{
       println("currentDirectory: $currentDirectory")
       def m = new MarkdownProcessor(); 
       currentDirectory.eachFile{ currentFile ->
+
+         //def currentFileName = currentFile.name
+         def dotLoc = ((java.lang.String)currentFile.name).lastIndexOf('.')
+         def currentFileName = currentFile.name[0..dotLoc - 1]
+
          if(currentFile.name.endsWith(".md")){ 
             def newFileName = createDestinationPath(currentDirectory.getPath()) + "/" + currentFile.name[0..-4] + ".html" 
             println("\t-MARKDOWN: $currentFile --> $newFileName")
             def newFile = new File(newFileName)
             indexBlogEntry(newFile)
 
-            newFile << processLine((new File(config.markdownHeader)).readLines().join('\n'))
-            newFile << processLine(m.markdown(currentFile.readLines().join('\n')))
-            newFile << processLine((new File(config.markdownFooter)).readLines().join('\n'))
+            newFile << processLine((new File(config.markdownHeader)).readLines().join('\n'), currentFileName)
+            newFile << processLine(m.markdown(currentFile.readLines().join('\n')), currentFileName)
+            newFile << processLine((new File(config.markdownFooter)).readLines().join('\n'), currentFileName)
          }
          else if(currentFile.name.endsWith(".html") || currentFile.name.endsWith(".css")){
             println "\t-RAW     : $currentFile.name"
@@ -62,7 +67,7 @@ class Pagin8{
 
             newFile.withWriter{ destinationFile ->
                currentFile.eachLine{ currLine ->
-                  destinationFile.writeLine(processLine(currLine))
+                  destinationFile.writeLine(processLine(currLine, currentFileName))
                }
             }
          }
@@ -112,7 +117,7 @@ class Pagin8{
             }
          }
 
-         newFile << processLine(currLine)
+         newFile << processLine(currLine, "index")
       }
    }
 
@@ -145,11 +150,11 @@ class Pagin8{
             }
          }
 
-         newFile << processLine(currLine)
+         newFile << processLine(currLine, "index")
       }
    }
 
-   def processLine(String lineIn){
+   def processLine(String lineIn, String currentFileName){
       if(lineIn == null){
          return
       }
@@ -162,7 +167,7 @@ class Pagin8{
          def includeFileName = config.dir.input+ "/" + lineIn[12..-5]
          println("\t\t- include: $includeFileName") 
          new File(includeFileName).eachLine{ currLine ->
-            lineIn += processLine(currLine) + "\n" 
+            lineIn += processLine(currLine, currentFileName) + "\n" 
          }
       }
 
@@ -179,6 +184,16 @@ class Pagin8{
 
       def currentDateToken = config.aliasBegin + "currentDate" + config.aliasEnd
       lineIn = ((java.lang.String)lineIn).replace(currentDateToken, currentDate)
+
+      def currentFileNamePrettyPrint = ""
+      if(!currentFileName.equals('index')){
+         //currentFileNamePrettyPrint = "${config.headerDelimiter} ${currentFileName}"
+         def headerDelimiter = config.headerDelimiter
+         println(" ----------------------------- headerDelimiter: ${headerDelimiter}")
+         currentFileNamePrettyPrint = "${headerDelimiter} ${currentFileName}"
+      }
+      def currentFileNamePrettyPrintToken = config.aliasBegin + "currentFileNamePrettyPrint" + config.aliasEnd
+      lineIn = ((java.lang.String)lineIn).replace(currentFileNamePrettyPrintToken, currentFileNamePrettyPrint)
 
       lineIn
    }

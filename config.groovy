@@ -1,24 +1,24 @@
 // aliases will be replaced in all files and includes
-alias{
+alias{ // @[theAlias]
    h1BackgroundColor= "#f8f8f8"
    textColor        = "#666666"
    DLN              = "Demian L. Neidetcher"
+   // special aliases 
+   // currentDate                = 2012-01-07T01:48:31 
+   // currentFileNamePrettyPrint = file name, underscores stripped, if index then blank 
 }
 
 // you probably don't need to mess with any of these values
 dir{
-   site = "site"               // the destination directory
-   //rawHtml = "./input"       // files will just be copied over, with aliases and includes applied
-   //include = "./input"   // snippest to pull from <!--include:footer.html-->
-   //markdown = "./input" // where markdown files are
+   site  = "site"               // the destination directory
    input = "input" // where markdown files are
-   blog = "blog"
+   blog  = "blog"
 }
 
-blogIndex = "./input/blog/index.htm"
-feedTemplate = "./input/blog/atom.xml"
-markdownHeader = "./input/header.htm"
-markdownFooter = "./input/footer.htm"
-aliasBegin = "@["
-aliasEnd = "]"
-
+headerDelimiter = "|"
+blogIndex       = "./input/blog/index.htm"
+feedTemplate    = "./input/blog/atom.xml"
+markdownHeader  = "./input/header.htm"
+markdownFooter  = "./input/footer.htm"
+aliasBegin      = "@["
+aliasEnd        = "]"
