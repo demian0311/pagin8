@@ -187,9 +187,8 @@ class Pagin8{
 
       def currentFileNamePrettyPrint = ""
       if(!currentFileName.equals('index')){
-         //currentFileNamePrettyPrint = "${config.headerDelimiter} ${currentFileName}"
+         currentFileName = ((java.lang.String)currentFileName).replace('_', ' ')
          def headerDelimiter = config.headerDelimiter
-         println(" ----------------------------- headerDelimiter: ${headerDelimiter}")
          currentFileNamePrettyPrint = "${headerDelimiter} ${currentFileName}"
       }
       def currentFileNamePrettyPrintToken = config.aliasBegin + "currentFileNamePrettyPrint" + config.aliasEnd
