@@ -67,5 +67,3 @@ I'll probably give strict 5/3/1 another chance but for now this is what I'm doin
 * 3x10 hang clean
 
 <!--include:disqus.htm-->
-
-
