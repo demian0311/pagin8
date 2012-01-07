@@ -54,7 +54,7 @@ class Pagin8{
             def newFile = new File(newFileName)
             indexBlogEntry(newFile)
 
-            // first process the md before applying markdown
+            // first process the md
             def markdownLines = []
             currentFile.readLines().each{ currentLine ->
                markdownLines.add(processLine(currentLine, currentFileName))
@@ -134,25 +134,14 @@ class Pagin8{
       feedTemplate.eachLine{ currLine ->
          if(currLine == '<!--feed-entries-->'){
             for( i in blogEntries.sort{it.year + it.month + it.date}.reverse()){
+               // TODO: externalize this 
                newFile << "<entry>"
-
-               newFile << "<id>$i.entryPath</id>"
-               newFile << "<title>$i.title</title>"
-               newFile << "<link href='http://neidetcher.com$i.entryPath'/>"
-               newFile << "<updated>$i.year-$i.month-${i.date}T00:00:00</updated>"
-               newFile << "<summary>$i.title</summary>"
-               /*
-               date: sections[4]]
-               title */
-               //newFile << "<content type="html">"
-               //newFile << "@entryContent]"
-               //newFile << "</content>"
-
+               newFile << "\t<id>$i.entryPath</id>"
+               newFile << "\t<title>$i.title</title>"
+               newFile << "\t<link href='${config.alias.siteUrl}$i.entryPath'/>"
+               newFile << "\t<updated>$i.year-$i.month-${i.date}T00:00:00</updated>"
+               newFile << "\t<summary>$i.title</summary>"
                newFile << "</entry>"
-               /*
-               newFile << "<li>" + i.year + "." + i.month + "." + i.date + ": <a href='$i.entryPath'>$i.title</a></li>"
-               */
-               // year, month, date, title, entryPath
             }
          }
 
