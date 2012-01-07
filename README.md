@@ -1,36 +1,44 @@
 pagin8
 ==============================================
 
-## What's it do?
-Static site generation in Groovy.  I took inspiration from the rizzo project.
-I use the same Markdown Java library that they are.  Rizzo has cool features
-around blogging which I have none of right now.
+## Features 
+* authoring pages in HTML and markdown
+* blogging in HTML and markdown
+* atom feed
+* alias substitution in markdown, HTML and CSS files
+* include HTML file snippets that you define for headers and footers
+* automatic page titles by filename
+* integration with the disqus comment service
+* central configuration
 
-#### Alias token replacement
-For example you can replace all instances of `@[backgroundColor]` with `#FFF`.
-This is easily configured in config.groovy in the alias block.
+## Include files
+Put this line in your HTML or markdown 
 
-Here is what my alias section of config.groovy looks like right now.
+  <!--include:file_name.htm-->
 
-      alias{
-         h1BackgroundColor= "#f8f8f8"
-         textColor        = "#666666"
-         DLN              = "Demian L. Neidetcher"
-      }
+The contents of the include file will also have aliases applied.
 
+## Configuration
+You shouldn't need to change any settings in config.groovy except for
+the entries under `alias`.  
 
-#### Includes
-Instead of repeating portions of HTML you can just include.
-    <!--include:footer.htm-->
+### Disqus
+To use the disqus service you need to:
+1. register your domain with disqus
+2. put include the disqus.htm in whatever files you want to allow comments on (probably every blog entry)
+3. set the `disqusShortname` in config.groovy
 
+### Feeds
+We use the `siteUrl` from `config.groovy` for the atom feeds.
 
-#### Markdown
-You can also write your pages using [Markdown](http://daringfireball.net/projects/markdown/).
-I use the [markdownj](http://markdownj.org/quickstart.html) project, seems good so far.
+### Aliases
+Use whatever aliases you want, it's a good way to specify and easily change color schemes in CSS
+or standard text like copyright information.
 
+## Blogging
+Just put your HTML (.html) files or markdown (.md) into a 
+directory conforming to this format
 
-## Getting started 
+  ./input/blog/YYYY/MM/DD/title_of_your_blog_entry.md
 
-Any time you want to change values in one place add values in the alias section of
-config.groovy.
-
+The rest we take care of.
