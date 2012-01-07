@@ -54,17 +54,13 @@ class Pagin8{
             def newFile = new File(newFileName)
             indexBlogEntry(newFile)
 
-            // first process the md
+            // first process the md before applying markdown
             def markdownLines = []
             currentFile.readLines().each{ currentLine ->
                markdownLines.add(processLine(currentLine, currentFileName))
             }
 
             newFile << processLine((new File(config.markdownHeader)).readLines().join('\n'), currentFileName)
-            //newFile << processLine(m.markdown(currentFile.readLines().join('\n')), currentFileName)
-            //markdownLines.each{
-            //   newFile << it
-            //}
             newFile << m.markdown(markdownLines.join('\n'))
             newFile << processLine((new File(config.markdownFooter)).readLines().join('\n'), currentFileName)
          }
