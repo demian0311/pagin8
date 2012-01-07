@@ -14,7 +14,7 @@ pagin8
 ## Include files
 Put this line in your HTML or markdown 
 
-  <!--include:file_name.htm-->
+    <!--include:file_name.htm-->
 
 The contents of the include file will also have aliases applied.
 
@@ -39,7 +39,7 @@ or standard text like copyright information.
 Just put your HTML (.html) files or markdown (.md) into a 
 directory conforming to this format
 
-  ./input/blog/YYYY/MM/DD/title_of_your_blog_entry.md
+    ./input/blog/YYYY/MM/DD/title_of_your_blog_entry.md
 
 The rest we take care of.
 
@@ -49,6 +49,6 @@ files locally, when I'm satisfied I check them all in.  On the remote machine I 
 re-generate.  I have a helpful script to run remote ssh commands, make sure you have your
 public key up on the server hosting your site.
 
-  #!/bin/sh
-  ssh you@example.com '(cd ~/code/pagin8 && git pull origin master && rm -rf site && ./pagin8.groovy)'
+    #!/bin/sh
+    ssh you@example.com '(cd ~/code/pagin8 && git pull origin master && rm -rf site && ./pagin8.groovy)'
 
