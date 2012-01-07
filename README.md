@@ -42,3 +42,13 @@ directory conforming to this format
   ./input/blog/YYYY/MM/DD/title_of_your_blog_entry.md
 
 The rest we take care of.
+
+## How I publish
+I have the project cloned on both my laptop and the server hosting my static site.  I edit 
+files locally, when I'm satisfied I check them all in.  On the remote machine I pull and 
+re-generate.  I have a helpful script to run remote ssh commands, make sure you have your
+public key up on the server hosting your site.
+
+  #!/bin/sh
+  ssh you@example.com '(cd ~/code/pagin8 && git pull origin master && rm -rf site && ./pagin8.groovy)'
+
