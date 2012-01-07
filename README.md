@@ -1,5 +1,15 @@
 pagin8
 ==============================================
+I have a cheap little VPS from SliceHost / RackSpace that doesn't serve up WordPress very well.
+I decided to go with a static site generation setup.  I played with some great options like 
+rizzo and octopress.  Being a programmer I just had to roll my own, ugh, I know, it's bad.
+
+This isn't the most beautiful code I have ever written but it does what I need it to for now.
+Feel free to fork it, blow away the `input` directory and tweak the `config.groovy` file and
+you should be off to the races.
+
+pagin8 generates my personal website at <http://neidetcher.com>.
+
 
 ## Features 
 * authoring pages in HTML and markdown
