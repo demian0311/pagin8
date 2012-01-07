@@ -1,12 +1,14 @@
 pagin8
 ==============================================
-I have a cheap little VPS from SliceHost / RackSpace that doesn't serve up WordPress very well.
+I have a cheap little VPS from [SliceHost](http://www.slicehost.com/) / 
+[RackSpace](http://www.rackspace.com/) that doesn't serve up [WordPress](http://wordpress.org/) very well.
 I decided to go with a static site generation setup.  I played with some great options like 
-rizzo and octopress.  Being a programmer I just had to roll my own, ugh, I know, it's bad.
+[rizzo](https://github.com/fifthposition/rizzo) and [octopress](http://octopress.org/).  
+Being a programmer I just had to roll my own, ugh, I know, it's bad.
 
 This isn't the most beautiful code I have ever written but it does what I need it to for now.
-Feel free to fork it, blow away the `input` directory and tweak the `config.groovy` file and
-you should be off to the races.
+Feel free to fork it, blow away the `input` directory, add your own HTML and markdown then tweak 
+the `config.groovy` file and you should be off to the races.
 
 pagin8 generates my personal website at <http://neidetcher.com>.
 
@@ -21,6 +23,18 @@ pagin8 generates my personal website at <http://neidetcher.com>.
 * integration with the disqus comment service
 * central configuration
 
+## Authoring 
+Regular pages go in whatever directory structure you want.  As we process files we preserve
+the directory structure.  You are responsible for linking to your own pages correctly.
+Markdown pages must end in `.md` and will have `header.htm` and `footer.htm` applied to them automatically.  
+HTML pages must end in `.html`, they can stand alone or have `<!--include:header.htm-->` and
+`<!--include:footer.htm-->`.
+
+
+## Building
+Assuming everything is properly configured and you have files for pages and blog
+entries you just go to the root of the project and run `pagin8.groovy`.
+
 ## Include files
 Put this line in your HTML or markdown 
 
@@ -32,11 +46,11 @@ The contents of the include file will also have aliases applied.
 You shouldn't need to change any settings in config.groovy except for
 the entries under `alias`.  
 
-### Disqus
+### Commenting with Disqus
 To use the disqus service you need to:
-1. register your domain with disqus
-2. put include the disqus.htm in whatever files you want to allow comments on (probably every blog entry)
-3. set the `disqusShortname` in config.groovy
+1. [register your domain with disqus](http://disqus.com)
+2. include the disqus.htm in whatever files you want to allow comments on (probably every blog entry)
+3. set the `disqusShortname` in `config.groovy`
 
 ### Feeds
 We use the `siteUrl` from `config.groovy` for the atom feeds.
