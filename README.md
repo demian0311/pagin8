@@ -3,8 +3,7 @@ pagin8
 I have a cheap little VPS from [SliceHost](http://www.slicehost.com/) / 
 [RackSpace](http://www.rackspace.com/) that doesn't serve up [WordPress](http://wordpress.org/) very well.
 I decided to go with a static site generation setup.  I played with some great options like 
-[rizzo](https://github.com/fifthposition/rizzo) and [octopress](http://octopress.org/).  
-Being a programmer I just had to roll my own, ugh, I know, it's bad.
+[rizzo](https://github.com/fifthposition/rizzo) and [octopress](http://octopress.org/).  Being a programmer I just had to roll my own, ugh, I know, it's bad.
 
 This isn't the most beautiful code I have ever written but it does what I need it to for now.
 Feel free to fork it, blow away the `input` directory, add your own HTML and markdown then tweak 
@@ -57,7 +56,8 @@ We use the `siteUrl` from `config.groovy` for the atom feeds.
 
 ### Aliases
 Use whatever aliases you want, it's a good way to specify and easily change color schemes in CSS
-or standard text like copyright information.
+or standard text like copyright information.  Wherever we find something like `@[aliasName]` we'll
+look for aliasName under the alis section in the config file and replace whatever value you have specified.
 
 ## Blogging
 Just put your HTML (.html) files or markdown (.md) into a 
@@ -70,7 +70,17 @@ The rest we take care of.
 ## How I publish
 I have the project cloned on both my laptop and the server hosting my static site.  I edit 
 files locally, when I'm satisfied I check them all in.  On the remote machine I pull and 
-re-generate.  I have a helpful script to run remote ssh commands, make sure you have your
+re-generate.  
+
+Point your webserver to the location of your pagin8 output directory.  I have an [nginx](http://nginx.org/) 
+configuration that looks like this
+
+    location / {
+        alias  /home/demian/code/pagin8/site/;
+        index  index.html index.htm;
+    }
+
+I have a helpful script to run remote ssh commands, make sure you have your
 public key up on the server hosting your site.
 
     #!/bin/sh
