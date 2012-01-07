@@ -3,6 +3,7 @@ alias{ // @[theAlias]
    h1BackgroundColor= "#f8f8f8"
    textColor        = "#666666"
    DLN              = "Demian L. Neidetcher"
+   disqusShortname  = "neidetcher"
    // special aliases 
    // currentDate                = 2012-01-07T01:48:31 
    // currentFileNamePrettyPrint = file name, underscores stripped, if index then blank 

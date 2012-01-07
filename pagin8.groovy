@@ -83,7 +83,7 @@ class Pagin8{
    }
 
    /** the blog entry file should have some meta-data */
-   def indexBlogEntry(File blogEntryFile){
+   def Boolean indexBlogEntry(File blogEntryFile){
       def blogDestinationPath = config.dir.site + "/" + config.dir.blog
       def path = blogEntryFile.getPath()
       if(path[0..blogDestinationPath.size() - 1] == blogDestinationPath){
