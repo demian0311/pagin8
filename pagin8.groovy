@@ -173,21 +173,21 @@ class Pagin8{
          if(lineIn.contains(fromString)){
             def toString = config.alias.getProperty(currKey)
             println("\t\t- alias  : $fromString -> $toString ") 
-            lineIn = ((java.lang.String)lineIn).replace(fromString, toString)
+            lineIn = lineIn.replace(fromString, toString)
          }
       }
 
       def currentDateToken = config.aliasBegin + "currentDate" + config.aliasEnd
-      lineIn = ((java.lang.String)lineIn).replace(currentDateToken, currentDate)
+      lineIn = lineIn.replace(currentDateToken, currentDate)
 
       def currentFileNamePrettyPrint = ""
       if(!currentFileName.equals('index')){
-         currentFileName = ((java.lang.String)currentFileName).replace('_', ' ')
+         currentFileName = currentFileName.replace('_', ' ')
          def headerDelimiter = config.headerDelimiter
          currentFileNamePrettyPrint = "${headerDelimiter} ${currentFileName}"
       }
       def currentFileNamePrettyPrintToken = config.aliasBegin + "currentFileNamePrettyPrint" + config.aliasEnd
-      lineIn = ((java.lang.String)lineIn).replace(currentFileNamePrettyPrintToken, currentFileNamePrettyPrint)
+      lineIn = lineIn.replace(currentFileNamePrettyPrintToken, currentFileNamePrettyPrint)
 
       lineIn
    }
