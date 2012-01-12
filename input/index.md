@@ -2,8 +2,10 @@ Hi, [I'm Demian](about.html).
 
 Here's [my resume](resume.html).
 
-I'm trying to learn Scala right now so I'm going through the levels 
-that Martin Odersky has specified.  [Here is me working through it](/scala_levels).
+I'm trying to learn [Scala](http://www.scala-lang.org/) right now so I'm 
+going through the [levels that Martin Odersky has 
+specified](http://www.scala-lang.org/node/8610).  
+[Here is me working through it](/scala_levels).
 
 Check out my [blog](/blog).
 
