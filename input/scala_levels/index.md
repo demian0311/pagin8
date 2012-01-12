@@ -38,7 +38,7 @@ This is an attempt to go through all those levels.
 ### Lazy vals
 ### Control abstraction, currying
 ### By-name parameters
-## Level L2: Senior library designer
+## [Level L2](/scala_levels/level_l2.html): Senior library designer
 ### Variance annotations
 ### Existential types (e.g., to interface with Java wildcards)
 ### Self type annotations and the cake pattern for dependency injection
