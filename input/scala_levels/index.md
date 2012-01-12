@@ -38,13 +38,8 @@ This is an attempt to go through all those levels.
 ### Lazy vals
 ### Control abstraction, currying
 ### By-name parameters
-## [Level L2](/scala_levels/level_l2.html): Senior library designer
-### Variance annotations
-### Existential types (e.g., to interface with Java wildcards)
-### Self type annotations and the cake pattern for dependency injection
-### Structural types (aka static duck typing)
-### Defining map/flatmap/withFilter for new kinds of for-expressions
-### Extractors
+## Level L2: Senior library designer
+[link](/scala_levels/level_l2.html)
 ## Level L3: Expert library designer
 ### Early initializers
 ### Abstract types
