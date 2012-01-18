@@ -1,6 +1,6 @@
 // aliases will be replaced in all files and includes
 alias{ // @[theAlias]
-   backgroundColor  = "E7ECEB" // muted, blue gray-ish
+   backgroundColor  = "#E7ECEB" // muted, blue gray-ish
    h1BackgroundColor= "#f8f8f8"
    textColor        = "#666666"
    DLN              = "Demian L. Neidetcher"
