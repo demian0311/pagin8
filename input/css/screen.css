@@ -45,7 +45,7 @@ code{
 body {
 		font-family: Helvetica, Arial, sans-serif, Tahoma;
 		font-size: 100%;
-		background-color: #ffffff;
+		background-color: @[backgroundColor];
 		margin-top: 2em;
       margin-left: 10%;
    	margin-right: 10%;
@@ -57,7 +57,7 @@ table.stats {
 		font-weight: normal;
 		font-size: 90%;
 		color: #ffffff;
-		background-color: #666666;
+		background-color: @[backgroundColor];
 		border: 0px;
 		border-spacing: 0px;}
 
