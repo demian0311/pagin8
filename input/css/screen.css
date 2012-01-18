@@ -8,17 +8,17 @@ h1 {
 h2 {
 		font-size: 115%;
 		border-bottom: 1px dotted #666666;
-		color: #666666;
+		color: black;
 		}
 
 h3 {
 		font-size: 100%;
-		color: #666666;
+		color: black;
 		}
 
 h4 {
 		font-size: 100%;
-		color: #666666;
+		color: black;
 		}
 
 a, a:visited, a:hover, a:active { 
