@@ -28,3 +28,16 @@ To create your site you just put HTML, CSS and markdown files in an input direct
 can define and use aliases, include other files (for headers and footers) and create
 blog posts in both HTML and markdown.
 
+### Pyborg ###
+<http://sourceforge.net/projects/pyborg/>
+
+This is a wiki system in Python CGI.  You could define your own wiki syntax to some
+extent.  It also had a hierarchical concept for wiki entries.
+
+### Pix ###
+<http://sourceforge.net/projects/pix/>
+
+Given a directory structure with pictures and some meta-data, the Python CGI script
+will render a site for viewing images.  It also creates thumbnails of your images.
+
+
