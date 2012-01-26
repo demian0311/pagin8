@@ -81,6 +81,16 @@ class Pagin8{
             println("\t-DIR     : $currentFile")
             processInput(currentFile, currentFile.name + "/")
          }
+         else if(currentFile.name == "robots.txt"){
+            def newFileName = createDestinationPath(currentDirectory.getPath()) + "/" + currentFile.name
+            def newFile = new File(newFileName)
+
+            newFile.withWriter{ destinationFile ->
+               currentFile.eachLine{ currLine ->
+                  destinationFile.writeLine(processLine(currLine, currentFileName))
+               }
+            }
+         }
          else{
             // what else?
             println "\t-DUNNO   : $currentFile.name"
