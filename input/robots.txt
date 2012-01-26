@@ -1,0 +1,5 @@
+User-agent: Baiduspider 
+User-agent: baiduspider 
+User-agent: Baiduspider+ 
+User-agent: YoudaoBot
+Disallow: / 
