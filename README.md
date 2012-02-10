@@ -47,6 +47,7 @@ the entries under `alias`.
 
 ### Commenting with Disqus
 To use the disqus service you need to:
+
 1. [register your domain with disqus](http://disqus.com)
 2. include the disqus.htm in whatever files you want to allow comments on (probably every blog entry)
 3. set the `disqusShortname` in `config.groovy`
