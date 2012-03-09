@@ -16,6 +16,15 @@
 </div>
 
 <div class="span4">
+<!--img src="http://farm4.staticflickr.com/3483/3778014281_80ca8fbfaf_t.jpg"/-->
+<h2>More stuff on this site...</h2>
+<ul>
+<li>Here's <a href="resume.html">my resume</a>.
+<li>Check out my <a href="/blog">blog</a>.
+</ul>
+</div>
+
+<div class="span4">
 <h2>Tweets</h2>
 <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
 <script>
@@ -47,13 +56,8 @@ new TWTR.Widget({
 </script>
 </div>
 
-<div class="span4">
-<!--img src="http://farm4.staticflickr.com/3483/3778014281_80ca8fbfaf_t.jpg"/-->
-<h2>More stuff on this site...</h2>
-<ul>
-<li>Here's <a href="resume.html">my resume</a>.
-<li>Check out my <a href="/blog">blog</a>.
-</ul>
-</div>
+
+
+
 </div><!-- row -->
 
