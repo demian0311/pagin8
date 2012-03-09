@@ -1,6 +1,5 @@
 <div class="hero-unit">
 <h1>Hello, world</h1>
-<img src="http://farm4.staticflickr.com/3483/3778014281_80ca8fbfaf_m.jpg"/>
 <a href="/about.html">more about the man</a>
 </div> <!-- hero -->
 
@@ -16,7 +15,40 @@
 </ul>
 </div>
 
-<div class="span8">
+<div class="span4">
+<h2>Tweets</h2>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 1,
+  interval: 30000,
+  width: 'auto',
+  height: 300,
+  theme: {
+    shell: {
+      background: '#f5f5f5',
+      color: '#333333'
+    },
+    tweets: {
+      background: '#f5f5f5',
+      color: '#333333',
+      links: '#0735eb'
+    }
+  },
+  features: {
+    scrollbar: true,
+    loop: false,
+    live: false,
+    behavior: 'all'
+  }
+}).render().setUser('demian0311').start();
+</script>
+</div>
+
+<div class="span4">
+<img src="http://farm4.staticflickr.com/3483/3778014281_80ca8fbfaf_t.jpg"/>
 <h2>More stuff on this site...</h2>
 <ul>
 <li>Here's <a href="resume.html">my resume</a>.
