@@ -1,6 +1,7 @@
 <div class="hero-unit">
 <h1>Hello, world</h1>
-<a href="/about.html">more about the man</a>
+<p>This is me, on the Internet.  Not a lot changes here but below are a bunch of links to where
+else you can find me.</p>
 </div> <!-- hero -->
 
 <div class="row">
@@ -21,6 +22,7 @@
 <ul>
 <li>Here's <a href="resume.html">my resume</a>.
 <li>Check out my <a href="/blog">blog</a>.
+<li><a href="/about.html">more about the man</a>
 </ul>
 </div>
 
