@@ -25,14 +25,14 @@ new TWTR.Widget({
   rpp: 1,
   interval: 30000,
   width: 'auto',
-  height: 300,
+  height: 'auto',
   theme: {
     shell: {
-      background: '#f5f5f5',
-      color: '#333333'
+      background: '#ffffff',
+      color: '#ffffff'
     },
     tweets: {
-      background: '#f5f5f5',
+      background: '#ffffff',
       color: '#333333',
       links: '#0735eb'
     }
@@ -48,7 +48,7 @@ new TWTR.Widget({
 </div>
 
 <div class="span4">
-<img src="http://farm4.staticflickr.com/3483/3778014281_80ca8fbfaf_t.jpg"/>
+<!--img src="http://farm4.staticflickr.com/3483/3778014281_80ca8fbfaf_t.jpg"/-->
 <h2>More stuff on this site...</h2>
 <ul>
 <li>Here's <a href="resume.html">my resume</a>.
