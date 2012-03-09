@@ -34,7 +34,7 @@ new TWTR.Widget({
     tweets: {
       background: '#ffffff',
       color: '#333333',
-      links: '#0735eb'
+      links: '#333333'
     }
   },
   features: {
