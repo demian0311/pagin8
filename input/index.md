@@ -2,6 +2,7 @@ Hi, [I'm Demian](about.html).
 
 <div class="hero-unit">
 <h1>Hello, world!</h1>
+
 Here's [my resume](resume.html).
 
 Check out my [blog](/blog).
