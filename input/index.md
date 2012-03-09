@@ -1,9 +1,8 @@
 <div class="hero-unit">
 <h1>Hello, world</h1>
-<div>
-<div><img src="http://farm4.staticflickr.com/3483/3778014281_80ca8fbfaf_m.jpg"/></div>
-<div><a href="/about.html">more about the man</a></div>
-</div>
+<img align="left" src="http://farm4.staticflickr.com/3483/3778014281_80ca8fbfaf_m.jpg"/>
+<a href="/about.html">more about the man</a>
+
 </div> <!-- hero -->
 
 <div class="row">
