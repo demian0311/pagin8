@@ -29,3 +29,5 @@ Yep, the old iso-8859-1, that's not what we want.  That's what we use as the *fr
     ~/code/scalakata>mv ./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala.utf8 ./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala
 
 After that I was back in business.
+
+<!--include:disqus.htm-->

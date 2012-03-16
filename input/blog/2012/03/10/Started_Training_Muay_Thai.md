@@ -13,3 +13,4 @@ knockout in UFC history.  So far it is a lot of fun.  It's a great
 workout.  I feel like a gimp right now though.  My brain doesn't 
 work fast enough to put combinations together quickly right now.
 
+<!--include:disqus.htm-->

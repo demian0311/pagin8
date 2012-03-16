@@ -9,3 +9,5 @@ cycle of 5/3/1 doing his exercises exactly and the pull-ups.  I like the results
 I am not measuring my 1 rep max for pull-ups I can tell it's getting easier.
 
 I guess the point is, don't be an ass-clown like me.  Listen to guys that know their stuff.
+
+<!--include:disqus.htm-->
