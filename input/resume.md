@@ -10,7 +10,7 @@ demian0311@gmail.com | 303.246.0841
 # Skill
 ## Languages and APIs
 - Java J2EE, EJB, iBatis, JDBC, Hibernate, JSP, Struts2 , Spring (DI, AOP, DAO), Acegi, JMX
-- Scala, Lift, Scalatra, Groovy, Grails, Python (Django , CGI, PIL), Jython, Ruby, Rails
+- [Scala](http://www.scala-lang.org/), [Lift](http://liftweb.net/), Play, Scalatra, Groovy, Grails, Python (Django , CGI, PIL), Jython, Ruby, Rails
 - Maven 2, Ant, jUnit, jUnitPerf, Selenium, Cobertura, EasyMock, Velocity
 - SQL, Stored Procedures
 - UML, OOP, OOA/D, Aspect Oriented Programming, Database design
@@ -27,6 +27,7 @@ demian0311@gmail.com | 303.246.0841
 # Experience
 
 ## Time Warner Cable - Member of Technical Staff, Denver, CO (Oct 10 - present)
+- Integrate with various back-end systems using scala, ReST / JSON APIs and SOAP.
 - Designed and implemented web services backing the first cable iPad application to stream real-time video content. The application and service was awarded the 2011 Academy of Television Arts & Sciences Philo T. Farnsworth Award.
 - Wrote Android demo application featured in Samsung keynote at the 2011 Consumer Electronics Show.
 
