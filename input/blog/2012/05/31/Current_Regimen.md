@@ -5,9 +5,7 @@ I follow the paleo / primal diet.  Primal is probably the better term because I'
 not shy about getting a little dairy.
 
 I have never been diagnosed with gluten intolerance but I can say for myself 
-that I haven't been sick since I've been on the paleo diet.  
-Arthritis runs in my family, I was starting to get some sharp 
-pain in my fingers.  This has gone away since starting paleo.
+that I haven't been sick since I've been on the paleo diet.  Arthritis runs in my family, I was starting to get some sharp pain in my fingers.  This has gone away since starting paleo.
 
 The diet offers good protein and good satiety.  The diet does not have to be low
 carbohydrate but if you do go lower carb on the diet you may notice benefits. 

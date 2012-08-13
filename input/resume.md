@@ -4,13 +4,13 @@ demian0311@gmail.com | 303.246.0841
 
 - Pragmatic team player that thrives on producing tangible results that add real benefit.
 - Proven experience effectively operating in Fortune 500 companies and startups.
-- Over 10 years of solid Java development experience primarily in the telecom domain.
+- Over 13 years of solid Java development experience primarily in the telecom domain.
 - Full SDLC experience in consulting, enterprise and consumer software offerings.
 
 # Skill
 ## Languages and APIs
 - Java J2EE, EJB, iBatis, JDBC, Hibernate, JSP, Struts2 , Spring (DI, AOP, DAO), Acegi, JMX
-- [Scala](http://www.scala-lang.org/), [Lift](http://liftweb.net/), Play, Scalatra, Groovy, Grails, Python (Django , CGI, PIL), Jython, Ruby, Rails
+- [Scala](http://www.scala-lang.org/), [Lift](http://liftweb.net/), Play, Groovy, Grails, Python (Django , CGI, PIL), Jython, Ruby, Rails
 - Maven 2, Ant, jUnit, jUnitPerf, Selenium, Cobertura, EasyMock, Velocity
 - SQL, Stored Procedures
 - UML, OOP, OOA/D, Aspect Oriented Programming, Database design
@@ -26,8 +26,9 @@ demian0311@gmail.com | 303.246.0841
 
 # Experience
 
-## Time Warner Cable - Member of Technical Staff, Denver, CO (Oct 10 - present)
-- Integrate with various back-end systems using scala, ReST / JSON APIs and SOAP.
+## Time Warner Cable - Senior Engineer, Denver, CO (Oct 10 - present)
+- Consumer portal development in Groovy and Grails.
+- Integrate with various back-end systems using Scala, ReST / JSON APIs and SOAP.
 - Designed and implemented web services backing the first cable iPad application to stream real-time video content. The application and service was awarded the 2011 Academy of Television Arts & Sciences Philo T. Farnsworth Award.
 - Wrote Android demo application featured in Samsung keynote at the 2011 Consumer Electronics Show.
 
@@ -40,6 +41,7 @@ demian0311@gmail.com | 303.246.0841
 - Build, manage, mentored and retained a 6 developer team with varying levels of experience.
 - Act as scrum master, aligned process with long-term initiatives.
 - Implement OSS to support telecom provisioning and call routing (VoIP and 911).
+- MySQL schema design to support call routing, features and billing.
 - Secure web site and web services via Acegi and database authorization.
 - Provide API documentation and continual customer support for web services.
 - Establish patterns, best practices and initial implementation for all layers of the architecture.
@@ -70,10 +72,10 @@ demian0311@gmail.com | 303.246.0841
 
 ## Affina - Programmer / Analyst, Peoria, IL (Dec 97 - Apr 99)
 - Oracle data warehousing analysis and data extraction from proprietary de-normalized RDBMS.
-- Python CGI intranet development using Postgres.
+- Python CGI intranet development with Postgres.
 - Parse proprietary markup knowledge base and generate standard HTML, JavaScript.
 
-## US Marines - Infantry Rifleman, Security Forces, Secret Clearance (9/90 - 9/94)
+## US Marines - Infantry Rifleman, Security Forces, Secret Clearance (90 - 94)
 
 # Education
 - University of Colorado graduate SW Certificate in Sowftware Engineering, Boulder, CO - 2004
